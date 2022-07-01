@@ -26,8 +26,6 @@ int main(void)
 					break;
 				for (j > 0 ? (k = 0) : (k = i + 1); k < 10; k++)
 				{
-					if (num == j && i == k)
-						continue;
 					putchar(num + '0');
 					putchar(i + '0');
 					putchar(' ');
