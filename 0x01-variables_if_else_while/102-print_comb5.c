@@ -20,12 +20,14 @@ int main(void)
 		{
 			if (done)
 				break;
-			for (j = num; j < 9; j++)
+			for (j = num; j < 10; j++)
 			{
 				if (done)
 					break;
 				for (j > 0 ? (k = 0) : (k = i + 1); k < 10; k++)
 				{
+					if (num == j && k == i)
+						continue;
 					putchar(num + '0');
 					putchar(i + '0');
 					putchar(' ');
