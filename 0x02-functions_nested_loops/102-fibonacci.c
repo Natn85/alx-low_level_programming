@@ -24,6 +24,5 @@ int main(void)
 		prev = current;
 		current = next;
 	}
-	printf("\n");
 	return (0);
 }
