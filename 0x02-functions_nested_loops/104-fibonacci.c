@@ -16,7 +16,7 @@ int main(void)
 	long sum_head, sum_tail;
 
 	printf("1");
-	for (i = 2; i <= 93; i++)
+	for (i = 2; i <= 92; i++)
 	{
 		next = current + prev;
 		printf(", %lu", current);
@@ -24,10 +24,10 @@ int main(void)
 		current = next;
 	}
 
-	current_head = current / BILLION;
-	current_tail = current % BILLION;
-	next_head = prev / BILLION;
-	next_tail = prev % BILLION;
+	current_head = prev / BILLION;
+	current_tail = prev % BILLION;
+	next_head = current / BILLION;
+	next_tail = current % BILLION;
 
 	for (; i < 99; i++)
 	{
