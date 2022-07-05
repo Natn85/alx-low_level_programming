@@ -29,14 +29,14 @@ void print_numbers(int k, int mod)
 	{
 		_putchar(k + '0');
 		if (mod > 0)
-			panctuate(3);
+			panctuate(mod);
 	}
 	else if (k < 100)
 	{
 		_putchar((k / 10) + '0');
 		_putchar((k % 10) + '0');
 		if (mod > 0)
-			panctuate(2);
+			panctuate(mod);
 	}
 	else
 	{
@@ -44,7 +44,7 @@ void print_numbers(int k, int mod)
 		_putchar(((k % 100) / 10) + '0');
 		_putchar((k % 10) + '0');
 		if (mod > 0)
-			panctuate(1);
+			panctuate(mod);
 	}
 }
 
@@ -64,11 +64,11 @@ void print_times_table(int n)
 		for (right = 0; right <= n; right++)
 		{
 			product = left * right;
-			postprod = left * (right + 1);
+			postprod = (left * (right + 1));
 
-			if (postprod > 100)
+			if (postprod >= 100)
 				mod = 1;
-			else if (postprod > 10)
+			else if (postprod >= 10)
 				mod = 2;
 			else
 				mod = 3;
