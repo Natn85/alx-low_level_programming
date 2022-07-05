@@ -41,4 +41,12 @@ int _islower(int c);
 
 int _isalpha(int c);
 
+/**
+ * print_sign - Print the sign of a number
+ *@n: integer input
+ *
+ * Return: -1 (Negative) 0 (Zero) 1 (Positive)
+ */
+int print_sign(int n);
+
 #endif
