@@ -19,7 +19,7 @@ int main(void)
 	for (i = 2; i <= 92; i++)
 	{
 		next = current + prev;
-		printf(", %lu", current);
+		printf(", %lu", next);
 		prev = current;
 		current = next;
 	}
