@@ -65,4 +65,11 @@ int _abs(int);
  */
 
 int print_last_digit(int);
+
+/**
+ * jack_bauer - print every minute and hour of the day
+ */
+void jack_bauer(void);
+
+
 #endif
