@@ -66,14 +66,7 @@ void print_times_table(int n)
 			product = left * right;
 			postprod = (left * (right + 1));
 
-			if (postprod >= 100)
-				mod = 1;
-			else if (postprod >= 10)
-				mod = 2;
-			else
-				mod = 3;
-			if (right == n)
-				mod = -1;
+			mod = right == n ? -1 : postprod >= 100 ? 1 : postprod >= 10 ? 2 : 3;
 			print_numbers(product, mod);
 		}
 		_putchar('\n');
