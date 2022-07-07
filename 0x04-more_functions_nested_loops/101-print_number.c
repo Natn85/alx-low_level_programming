@@ -7,8 +7,8 @@
 
 void print_number(int n)
 {
-	unsigned int tens, digit, positive = n;
-	double t_beg = 1;
+	unsigned int tens, dig, pos = n;
+	double temp_tens = 1;
 
 	if (n == 0)
 		_putchar('0');
@@ -16,19 +16,19 @@ void print_number(int n)
 	{
 		if (n < 0)
 		{
-			positive = n * -1;
+			pos = n * -1;
 			_putchar('-');
 		}
 
-		while (t_beg <= positive)
-			t_beg *= 10;
-		tens = t_beg / 10;
+		while (temp_tens <= pos)
+			temp_tens *= 10;
+		tens = temp_tens / 10;
 
 		while (tens >= 1)
 		{
-			digit = positive / tens;
-			_putchar(digit + '0');
-			positive = (positive - (tens * digit));
+			dig = pos / tens;
+			_putchar(dig + '0');
+			pos = (pos - (tens * dig));
 			tens /= 10;
 		}
 	}
