@@ -51,7 +51,12 @@ void print_numbers(void);
  */
 void print_most_numbers(void);
 
-
+/**
+ * more_numbers - print 0 - 14
+ *
+ * Return: void
+ */
+void more_numbers(void);
 
 
 
