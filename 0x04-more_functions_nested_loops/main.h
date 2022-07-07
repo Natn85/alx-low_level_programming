@@ -87,4 +87,12 @@ void print_square(int size);
  * Return: void
  */
 void print_triangle(int size);
+
+/**
+ * print_number - Print an integer number
+ * @n: integer
+ */
+void print_number(int n);
+
+
 #endif /* main.h */
