@@ -20,4 +20,12 @@ int _putchar(char c);
 
 int _isupper(int c);
 
+/**
+ * _isdigit - Check for uppercase characters
+ * @c: integer
+ * Return: 1 (Success) 0 (Otherwise)
+ */
+
+int _isdigit(int c)
+
 #endif /* main.h */
