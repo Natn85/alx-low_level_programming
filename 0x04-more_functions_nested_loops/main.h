@@ -74,4 +74,11 @@ void print_line(int n);
  */
 void print_diagonal(int n);
 
+/**
+ * print_square - print a square pattern
+ * @size: l
+ * Return: void
+ */
+void print_square(int size);
+
 #endif /* main.h */
