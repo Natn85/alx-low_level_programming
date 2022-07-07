@@ -58,6 +58,12 @@ void print_most_numbers(void);
  */
 void more_numbers(void);
 
-
+/**
+ * print_line - prints a line
+ * @n: length
+ *
+ * Return: void
+ */
+void print_line(int n);
 
 #endif /* main.h */
