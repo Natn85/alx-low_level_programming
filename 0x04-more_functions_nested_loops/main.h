@@ -28,4 +28,14 @@ int _isupper(int c);
 
 int _isdigit(int c);
 
+/**
+ * mul - Entry point
+ * @a: interger
+ * @b: integer
+ *
+ * Return: a x b
+ */
+int mul(int a, int b);
+
+
 #endif /* main.h */
