@@ -81,4 +81,10 @@ void print_diagonal(int n);
  */
 void print_square(int size);
 
+/**
+ * print_triangle - print a triangle pattern
+ * @size: l
+ * Return: void
+ */
+void print_triangle(int size);
 #endif /* main.h */
