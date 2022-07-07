@@ -26,6 +26,6 @@ int _isupper(int c);
  * Return: 1 (Success) 0 (Otherwise)
  */
 
-int _isdigit(int c)
+int _isdigit(int c);
 
 #endif /* main.h */
