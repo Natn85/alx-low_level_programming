@@ -70,5 +70,12 @@ void rev_string(char *s);
 
 void puts2(char *str);
 
+/**
+ * puts_half - print half a string
+ * @str: character pointer
+ * Return: void
+ */
+
+void puts_half(char *str);
 
 #endif
