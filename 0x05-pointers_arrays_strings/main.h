@@ -61,4 +61,14 @@ void print_rev(char *str);
  */
 void rev_string(char *s);
 
+/**
+ * _puts2 - print to the stdout
+ * @str: string
+ *
+ * Return: void
+ */
+
+void puts2(char *str);
+
+
 #endif
