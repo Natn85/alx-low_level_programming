@@ -89,13 +89,20 @@ void puts_half(char *str);
  */
 void print_array(int *a, int n);
 
-#include "main.h"
-
 /**
  * _strcpy - copy string
  *
  * Return: Character
  */
 char *_strcpy(char *dest, char *src);
+
+/**
+ * _atoi - convert string to int
+ * @s: string to convert
+ * Return: integer
+ */
+
+int _atoi(char *s);
+
 
 #endif
