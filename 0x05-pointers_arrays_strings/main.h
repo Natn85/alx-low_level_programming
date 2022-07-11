@@ -3,6 +3,8 @@
 
 #include <string.h>
 
+#include <stdio.h>
+
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -77,5 +79,14 @@ void puts2(char *str);
  */
 
 void puts_half(char *str);
+
+/**
+ * print_array - prints an array
+ * @a: integer
+ * @n: integer
+ *
+ * Return: void
+ */
+void print_array(int *a, int n);
 
 #endif
