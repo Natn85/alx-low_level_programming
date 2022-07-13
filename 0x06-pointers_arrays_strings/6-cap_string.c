@@ -27,6 +27,9 @@ char *cap_string(char *s)
 
 	while (s[i] != '\0')
 	{
+		if ((s[i] >= 'a' && s[i] <= 'z') && i == 0)
+			s[i] = s[i] - 'a' + 'A';
+
 		if ((s[i] >= 'a' && s[i] <= 'z') && template(s[i - 1]))
 			s[i] = s[i] - 'a' + 'A';
 		i++;
