@@ -12,4 +12,15 @@
 
 char *_strcat(char *dest, char *src);
 
+/**
+ * _strncat - Entry point
+ * @dest: char pinter
+ * @src: char pointer
+ * @n: integer
+ *
+ * Return: char
+ */
+
+char *_strncat(char *dest, char *src, int n);
+
 #endif
