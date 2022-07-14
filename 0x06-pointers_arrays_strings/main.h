@@ -78,5 +78,14 @@ char *cap_string(char *s);
 
 char *leet(char *s);
 
+/**
+ * rot13 - encode a string to 1337
+ * @s: string
+ *
+ * Return: string
+ */
+
+char *rot13(char *s);
+
 
 #endif
