@@ -3,8 +3,6 @@
 
 #include <stdio.h>
 
-#define NULL 0
-
 int _putchar(char);
 
 /**
