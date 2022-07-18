@@ -3,6 +3,8 @@
 
 #define NULL 0
 
+int _putchar(char);
+
 /**
  * _memset - append n bytes of memory with a constant value
  * @s: pointer to memory area
@@ -63,5 +65,14 @@ char *_strpbrk(char *s, char *accept);
  */
 
 char *_strstr(char *haystack, char *needle);
+
+/**
+ * print_chessboard - print chessboard given set 2D array
+ * @a: 2D array
+ *
+ * Return: void
+ */
+
+void print_chessboard(char (*a)[8]);
 
 #endif
