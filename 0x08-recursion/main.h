@@ -1,6 +1,8 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
+#define NULL 0
+
 int _putchar(char c);
 
 /**
