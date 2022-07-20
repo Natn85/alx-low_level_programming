@@ -7,6 +7,8 @@
 
 #define TRUE 1
 
+#define END '\0'
+
 int _putchar(char c);
 
 /**
@@ -71,5 +73,14 @@ int _sqrt_recursion(int n);
  */
 
 int is_prime_number(int n);
+
+/**
+ * is_palindrome - check if a string is palindrome
+ * @s: string
+ *
+ * Return: SUCCESS ? 1 : 0
+ */
+
+int is_palindrome(char *s);
 
 #endif
