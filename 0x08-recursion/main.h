@@ -5,6 +5,8 @@
 
 #define ERROR -1
 
+#define TRUE 1
+
 int _putchar(char c);
 
 /**
@@ -42,5 +44,14 @@ int _strlen_recursion(char *s);
 
 int factorial(int n);
 
+/**
+ * _pow_recursion - x exponent y
+ * @x: number
+ * @y: power to raise to
+ *
+ * Return: power < 0 ? -1 : power of a number
+ */
+
+int _pow_recursion(int x, int y);
 
 #endif
