@@ -54,4 +54,13 @@ int factorial(int n);
 
 int _pow_recursion(int x, int y);
 
+/**
+ * _sqrt_recursion - call @_this_is_root func
+ * @n: integer n
+ *
+ * Return: SUCCESS ? root : -1
+ */
+
+int _sqrt_recursion(int n);
+
 #endif
