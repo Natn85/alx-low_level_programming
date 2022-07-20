@@ -63,4 +63,13 @@ int _pow_recursion(int x, int y);
 
 int _sqrt_recursion(int n);
 
+/**
+ * is_prime_number - call @_this_is_prime func
+ * @n: integer n
+ *
+ * Return: SUCCESS ? 1 : 0
+ */
+
+int is_prime_number(int n);
+
 #endif
