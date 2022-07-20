@@ -3,6 +3,8 @@
 
 #define NULL 0
 
+#define ERROR -1
+
 int _putchar(char c);
 
 /**
@@ -30,6 +32,15 @@ void _print_rev_recursion(char *s);
  */
 
 int _strlen_recursion(char *s);
+
+/**
+ * factorial - get the factorial of a number
+ * @n: integer number
+ *
+ * Return: Success ? Factorial : -1
+ */
+
+int factorial(int n);
 
 
 #endif
