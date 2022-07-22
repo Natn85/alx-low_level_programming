@@ -5,6 +5,8 @@
 
 #include <stdlib.h>
 
+#include <stdbool.h>
+
 #define __noerr __attribute__((unused))
 
 #define END '\0'
