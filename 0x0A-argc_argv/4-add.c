@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
 	while (i < argc)
 	{
-		if (atoi(argv[i]) == 0 && !this_is_zero(argv[i]))
+		if ((!atoi(argv[i]) && !this_is_zero(argv[i])) || atoi(argv[i]) < 0)
 			goto ERROR;
 
 		sum += atoi(argv[i]);
