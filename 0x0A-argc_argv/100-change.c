@@ -5,7 +5,7 @@
  * @argc: number of params
  * @argv: array of params
  *
- * Return: Always 0 (Success)
+ * Return: SUCCESS ? 0 : 1
  */
 
 int main(int argc, char *argv[])
