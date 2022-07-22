@@ -3,4 +3,6 @@
 
 #include <stdio.h>
 
+#define __noerr __attribute__((unused))
+
 #endif
