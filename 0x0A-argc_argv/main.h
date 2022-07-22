@@ -7,6 +7,8 @@
 
 #define __noerr __attribute__((unused))
 
+#define END '\0'
+
 int _putchar(char c);
 
 
