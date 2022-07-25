@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 
+#include <string.h>
+
 int _putchar(char c);
 
 /**
@@ -19,5 +21,17 @@ int _putchar(char c);
  */
 
 char *create_array(unsigned int size, char c);
+
+/**
+ * _strdup - returns a pointer to a newly allocated space
+ * in memory, which contains a copy of the string given
+ * as a parameter.
+ *
+ * @str: string
+ *
+ * Return: pointer to space in memory or NULL
+ */
+
+char *_strdup(char *str);
 
 #endif
