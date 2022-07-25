@@ -34,4 +34,15 @@ char *create_array(unsigned int size, char c);
 
 char *_strdup(char *str);
 
+/**
+ * str_concat - concatenate two string
+ *
+ * @s1: string
+ * @s2: string
+ *
+ * Return: pointer to newly allocated space or NULL in failure
+ */
+
+char *str_concat(char *s1, char *s2);
+
 #endif
