@@ -16,10 +16,13 @@ char *_strdup(char *str)
 	char *s;
 
 	if (!str)
-		return (NULL);
+		goto EMPTY;
 
 	len = strlen(str);
-	s = malloc(sizeof(char) * len + 2);
+	s = malloc(sizeof(char) * len + 1);
+
+	if (!s)
+		goto EMPTY;
 
 	for (i = 0; i < len; i++)
 		s[i] = str[i];
@@ -27,4 +30,5 @@ char *_strdup(char *str)
 	s[i] = END;
 
 	return (s);
+EMPTY:	return (NULL);
 }
