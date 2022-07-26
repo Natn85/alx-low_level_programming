@@ -3,6 +3,8 @@
 
 #define END '\0'
 
+#define BYTE 8
+
 #include <stdlib.h>
 
 #include <stdio.h>
