@@ -15,8 +15,11 @@ char **strtow(char *str)
 	len = strlen(str) + 1;
 	_str[0] = malloc(len * sizeof(char));
 
+	if (!_str[0])
+		return (NULL);
+
 	j = 0;
-	while (str[i++] != END)
+	while (str[i] != END)
 	{
 		if (str[i] && str[i] != '\t' && str[i] != ' ')
 			_str[0][j++] = str[i];
@@ -26,9 +29,15 @@ char **strtow(char *str)
 			if (_str[0][j - 1] != '\n' && _str[0][j - 1])
 				_str[0][j++] = '\n';
 		}
+		i++;
 	}
-	_str[0][j - 1] = END;
+
+	if (!_str[0][j - 1])
+		return (NULL);
+
+	_str[0][j] = END;
+
+	_str[0][j - 1] = _str[0][j - 1] == '\n' ? END : _str[0][j - 1];
 
 	return (_str);
 }
-
