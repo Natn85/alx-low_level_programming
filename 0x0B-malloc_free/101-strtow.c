@@ -9,10 +9,10 @@
 
 char **strtow(char *str)
 {
-	char **_str = malloc(sizeof(char) * BYTE);
+	char **_str = malloc(sizeof(char));
 	int len, j, i = 0;
 
-	len = strlen(str) + BYTE;
+	len = strlen(str) + (BYTE * BYTE);
 	_str[0] = malloc(len * sizeof(char));
 
 	if (!_str[0])
