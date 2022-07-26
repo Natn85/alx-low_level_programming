@@ -12,7 +12,7 @@ char **strtow(char *str)
 	char **_str = malloc(sizeof(char));
 	int len, j, i = 0;
 
-	len = strlen(str) + 22;
+	len = strlen(str) + 23;
 	_str[0] = malloc(len * sizeof(char));
 
 	if (!_str[0])
