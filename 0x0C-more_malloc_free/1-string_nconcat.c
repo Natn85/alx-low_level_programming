@@ -23,18 +23,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (!s)
 		return (NULL);
 
-	i = 0;
-	while (s1[i] != END)
-	{
+	for (i = 0; s1[i] != END; i++)
 		s[i] = s1[i];
-		i++;
-	}
 
 	k = 0;
 	while (s2[k] != END && k < (int) n)
 		s[i++] = s2[k++];
 
-	s[i++] = END;
+	s[i] = END;
 
 	return (s);
 }
