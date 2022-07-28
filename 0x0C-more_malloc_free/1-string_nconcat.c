@@ -4,7 +4,6 @@
  * string_nconcat - concatenate s1 and n bytes of s2
  * @s1: string 1
  * @s2: string 2
- *
  * @n: n bytes to concat from string 2
  * Return: pointer to concatenated string
  */
@@ -20,9 +19,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (!s2)
 		s2 = EMPTY;
 
-	size = sizeof(s1) + (sizeof(char *) * (n + 1));
+	size = sizeof(char *) * (((int) n >= (int) strlen(s2) ? n : strlen(s2))) + 1;
 
-	s = malloc(size);
+	s = malloc(sizeof(s1) + size);
 
 	if (!s)
 		return (NULL);
