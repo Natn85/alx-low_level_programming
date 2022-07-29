@@ -11,6 +11,8 @@
 
 #include <string.h>
 
+int _putchar(char c);
+
 /**
  * malloc_checked - allocates memory using malloc
  * @b: size of memory to allocate
