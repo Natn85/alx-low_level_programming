@@ -3,8 +3,6 @@
 
 #define NIL "(nil)"
 
-#include <stdio.h>
-
 /**
  * dog_t - Typedef for struct dog
  */
