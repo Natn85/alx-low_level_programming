@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 /**
- * dog_t - defines a type dog
+ * dog_t - Typedef for struct dog
  */
 
 typedef struct dog dog_t;
