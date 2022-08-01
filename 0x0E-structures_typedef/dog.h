@@ -1,6 +1,10 @@
 #ifndef _DOG_H
 #define _DOG_H
 
+#define NIL "(nil)"
+
+#include <stdio.h>
+
 /**
  * struct dog - structure for dogs
  * @name: first member
