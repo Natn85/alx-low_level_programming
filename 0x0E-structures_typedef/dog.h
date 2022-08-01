@@ -1,6 +1,9 @@
 #ifndef _DOG_H
 #define _DOG_H
 
+#define NIL "(nil)"
+
+#include <stdio.h>
 
 /**
  * struct dog - structure for dogs
@@ -17,6 +20,6 @@ struct dog
 };
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
-
+void print_dog(struct dog *d);
 
 #endif
