@@ -1,44 +1,40 @@
 #include "dog.h"
 
 /**
- *_strdup - duplicate a string
- *@str: string
+ * _strdup - duplicate a string
+ * @str: string
  *
- *Return: pointer to newely allocated space in memory
+ * Return: pointer to newely allocated space in memory
  */
 char *_strdup(char *str)
 {
-char *str1;
-int i, j;
+	char *temp;
+	int i, j;
 
-if (str == NULL)
-{
-return (NULL);
-}
-for (i = 0; str[i]; i++)
-{
-;
-}
-i++;
-str1 = malloc(sizeof(char) * i);
+	if (!str)
+		return (NULL);
 
-if (str1 == NULL)
-{
-return (NULL);
-}
-for (j = 0; j < i; j++)
-str1[j] = str[j];
+	for (i = 0; str[i]; i++)
+		;
 
-return (str1);
+	temp = malloc(sizeof(char) * ++i);
+
+	if (!temp)
+		return (NULL);
+
+	for (j = 0; j < i; j++)
+		temp[j] = str[j];
+
+	return (temp);
 }
 
 /**
- *new_dog - structure
- *@name: array of character
- *@age: floate
- *@owner: array of character
+ * new_dog - structure
+ * @name: member
+ * @age: member
+ * @owner: member
  *
- *Return: string
+ * Return: dog_t
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
