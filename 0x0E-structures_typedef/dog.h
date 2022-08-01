@@ -1,8 +1,6 @@
 #ifndef _DOG_H
 #define _DOG_H
 
-#define NIL "(nil)"
-
 /**
  * dog_t - Typedef for struct dog
  */
