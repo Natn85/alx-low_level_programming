@@ -6,6 +6,12 @@
 #include <stdio.h>
 
 /**
+ * dog_t - defines a type dog
+ */
+
+typedef struct dog dog_t;
+
+/**
  * struct dog - structure for dogs
  * @name: first member
  * @age: second member
@@ -22,10 +28,6 @@ struct dog
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 
-/**
- * dog_t - defines a type dog
- */
 
-typedef struct dog dog_t;
 
 #endif
