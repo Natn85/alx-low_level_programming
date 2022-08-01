@@ -22,4 +22,10 @@ struct dog
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 
+/**
+ * dog_t - defines a type dog
+ */
+
+typedef dog dog_t;
+
 #endif
