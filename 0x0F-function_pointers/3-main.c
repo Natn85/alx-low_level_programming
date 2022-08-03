@@ -23,18 +23,6 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 	f = get_op_func(argv[2]);
 
-	if (!f || argv[2][1])
-	{
-		ERR_OUT;
-		ERR_OPP;
-	}
-
-	if ((argv[2][0] == '/' || argv[2][0] == '%') && argv[3][0] == '0')
-	{
-		ERR_OUT;
-		ERR_INF;
-	}
-
 	printf("%d\n", f(a, b));
 
 	return (0);

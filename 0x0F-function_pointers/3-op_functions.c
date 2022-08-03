@@ -1,3 +1,5 @@
+#include "3-calc.h"
+
 /**
  * op_add - addition
  * @a: value
@@ -43,6 +45,11 @@ int op_mul(int a, int b)
  */
 int op_div(int a, int b)
 {
+	if (b == 0)
+	{
+		ERR_OUT;
+		ERR_INF;
+	}
 	return (a / b);
 }
 
@@ -55,5 +62,11 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
+	if (b == 0)
+	{
+		ERR_OUT;
+		ERR_INF;
+	}
+
 	return (a % b);
 }
