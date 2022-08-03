@@ -2,6 +2,8 @@
 #define _FUNCTION_POINTER_H
 
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_name - prints a name
