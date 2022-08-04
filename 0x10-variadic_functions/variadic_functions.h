@@ -48,12 +48,6 @@ typedef struct opt
 	void (*meth)(va_list);
 } opt_t;
 
-typedef struct dt
-{
-	char letter;
-	void (*func)(va_list);
-} datatype;
-
 /**
  * print_all - prints anything
  * @format: list of types of args
