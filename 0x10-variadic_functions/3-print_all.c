@@ -1,6 +1,46 @@
 #include "variadic_functions.h"
 
 /**
+ * print_char - prints char
+ * @params: params
+ */
+void print_char(va_list params)
+{
+	printf("%c", va_arg(params, int));
+}
+
+/**
+ * print_int - prints int
+ * @params: params
+ */
+void print_int(va_list params)
+{
+	printf("%d", va_arg(params, int));
+}
+
+/**
+ * print_float - prints float
+ * @params: params
+ */
+void print_float(va_list params)
+{
+	printf("%f", va_arg(params, double));
+}
+
+/**
+ * print_string - prints string
+ * @params: params
+ */
+void print_string(va_list params)
+{
+	char *s;
+
+	s = va_arg(params, char *);
+	printf("%s", s ? s : NIL);
+}
+
+
+/**
  * print_all - prints anything
  * @format: list of types of args
  *
@@ -41,43 +81,4 @@ void print_all(const char * const format, ...)
 
 	va_end(params);
 	printf("\n");
-}
-
-/**
- * print_char - prints char
- * @params: params
- */
-void print_char(va_list params)
-{
-	printf("%c", va_arg(params, int));
-}
-
-/**
- * print_int - prints int
- * @params: params
- */
-void print_int(va_list params)
-{
-	printf("%d", va_arg(params, int));
-}
-
-/**
- * print_float - prints float
- * @params: params
- */
-void print_float(va_list params)
-{
-	printf("%f", va_arg(params, double));
-}
-
-/**
- * print_string - prints string
- * @params: params
- */
-void print_string(va_list params)
-{
-	char *s;
-
-	s = va_arg(params, char *);
-	printf("%s", s ? s : NIL);
 }

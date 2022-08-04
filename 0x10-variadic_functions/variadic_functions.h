@@ -57,28 +57,4 @@ typedef struct opt
 
 void print_all(const char * const format, ...);
 
-/**
- * print_char - prints char
- * @params: params
- */
-void print_char(va_list params);
-
-/**
- * print_int - prints int
- * @params: params
- */
-void print_int(va_list params);
-
-/**
- * print_float - prints float
- * @params: params
- */
-void print_float(va_list params);
-
-/**
- * print_string - prints string
- * @params: params
- */
-void print_string(va_list params);
-
 #endif
