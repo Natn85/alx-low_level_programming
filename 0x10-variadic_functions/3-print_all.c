@@ -63,18 +63,17 @@ void print_all(const char * const format, ...)
 
 	va_start(params, format);
 	i = 0;
-	while (format[i])
+	while (format && *(format + i))
 	{
 		j = 0;
-		while (print[j].opt)
-		{
-			if (*(print[j].opt) == *(format + i))
-			{
-				printf("%s", sep);
-				print[j].meth(params);
-				sep = ", ";
-			}
+		while (j < 4 && (*(print[j].opt) != *(format + i)))
 			j++;
+
+		if (j < 4)
+		{
+			printf("%s", sep);
+			print[j].meth(params);
+			sep = ", ";
 		}
 		i++;
 	}
