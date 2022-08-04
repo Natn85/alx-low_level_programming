@@ -50,11 +50,11 @@ void print_string(va_list params)
 void print_all(const char * const format, ...)
 {
 	opt_t print[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
-		{'\0', NULL}
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
+		{NULL, NULL}
 	};
 
 	va_list params;
@@ -68,7 +68,7 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (print[j].opt)
 		{
-			if (print[j].opt == format[i])
+			if (*(print[j].opt) == *(format + i))
 			{
 				printf("%s", sep);
 				print[j].meth(params);

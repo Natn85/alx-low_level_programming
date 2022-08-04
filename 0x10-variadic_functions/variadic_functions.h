@@ -44,7 +44,7 @@ void print_strings(const char *separator, const unsigned int n, ...);
  */
 typedef struct opt
 {
-	char opt;
+	char *opt;
 	void (*meth)(va_list);
 } opt_t;
 
