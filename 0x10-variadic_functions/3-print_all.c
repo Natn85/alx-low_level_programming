@@ -66,10 +66,10 @@ void print_all(const char * const format, ...)
 	while (format && *(format + i))
 	{
 		j = 0;
-		while (j < 4 && (*(print[j].opt) != *(format + i)))
+		while (print[j].opt && (*(print[j].opt) != *(format + i)))
 			j++;
 
-		if (j < 4)
+		if (print[j].opt)
 		{
 			printf("%s", sep);
 			print[j].meth(params);
