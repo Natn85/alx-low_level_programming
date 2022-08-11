@@ -22,7 +22,6 @@ size_t print_list(const list_t *h)
 			printf("[%u] %s\n", 0, NIL);
 
 		tmp = tmp->next;
-		count++;
 	}
 	return (count);
 }
