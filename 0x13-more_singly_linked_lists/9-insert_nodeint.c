@@ -11,14 +11,5 @@
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	if (!head)
-		return (NULL);
-
-	for (; head && index; index--)
-		head = head->next;
-
-	if (!index)
-		return (head);
-
 	return (NULL);
 }
