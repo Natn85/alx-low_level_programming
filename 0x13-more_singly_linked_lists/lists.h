@@ -4,6 +4,7 @@
 #define END '\0'
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * struct listint_s - singly linked list
