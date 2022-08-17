@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * _get_loop - Counts the number of unique nodes
+ * get_loop - Counts the number of unique nodes
  * @head: list
  *
  * Return: nodes or 0
  */
-size_t _get_loop(const listint_t *head)
+size_t get_loop(const listint_t *head)
 {
 	const listint_t *chaser, *runner;
 	size_t nodes = 1;
@@ -47,33 +47,41 @@ size_t _get_loop(const listint_t *head)
 }
 
 /**
- * print_listint_safe - Prints a list safely
- * @head: list
+ * free_listint_safe - Frees a safe list
+ * @h: list
  *
- * Return: The number of nodes in the list
+ * Return: size of list freed
  */
-size_t print_listint_safe(const listint_t *head)
+size_t free_listint_safe(listint_t **h)
 {
-	size_t nodes, index = 0;
+	listint_t *temp;
+	size_t nodes, index;
 
-	nodes = _get_loop(head);
+	nodes = get_loop(*h);
 
 	if (!nodes)
 	{
-		for (; head; nodes++)
+		for (; h && *h; nodes++)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
 		}
-		goto KILL;
 	}
 
-	for (index = 0; index < nodes; index++)
+	else
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
-	}
-	printf("-> [%p] %d\n", (void *)head, head->n);
+		for (index = 0; index < nodes; index++)
+		{
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
+		}
 
-KILL:	return (nodes);
+		*h = NULL;
+	}
+
+	h = NULL;
+
+	return (nodes);
 }
