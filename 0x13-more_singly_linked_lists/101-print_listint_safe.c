@@ -1,96 +1,79 @@
 #include "lists.h"
 
 /**
- * count_to_loop - count unique nodes to print
+ * get_loop - Counts the number of unique nodes
  * @head: list
- * Return: number of unique nodes
+ *
+ * Return: nodes or 0
  */
-int count_to_loop(const listint_t *head)
+size_t get_loop(const listint_t *head)
 {
-	int count = 0;
 	const listint_t *chaser, *runner;
+	size_t nodes = 1;
 
-	chaser = runner = head;
+	if (!head || !head->next)
+		return (0);
 
-	for (; chaser && runner;)
+	chaser = head->next;
+	runner = (head->next)->next;
+
+	for (; runner;)
 	{
-		chaser = chaser->next;
-		runner = runner->next->next;
-		count++;
-
 		if (chaser == runner)
 		{
 			chaser = head;
-			for (; chaser != runner; count++)
+			for (; chaser != runner;)
 			{
+				nodes++;
 				chaser = chaser->next;
 				runner = runner->next;
 			}
-			return (count);
+
+			chaser = chaser->next;
+			for (; chaser != runner;)
+			{
+				nodes++;
+				chaser = chaser->next;
+			}
+
+			return (nodes);
 		}
-	}
-	return (0);
-}
 
-/**
- * check_loop - find if there's a loop in linked list
- * @head: list
- * Return: loop ? 1 : 0
- */
-int check_loop(const listint_t *head)
-{
-	const listint_t *chaser, *runner;
-
-	chaser = runner = head;
-
-	for (; chaser && runner;)
-	{
 		chaser = chaser->next;
-		runner = runner->next->next;
-
-		if (chaser == runner)
-			return (1);
+		runner = (runner->next)->next;
 	}
+
 	return (0);
 }
 
 /**
- * print_listint_safe - prints list with addresses
+ * print_listint_safe - Prints a list safely
  * @head: list
- * Return: nodes / exit(98)
+ *
+ * Return: The number of nodes in the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	int count = 0;
-	int get_loop;
-	size_t nodes = 0;
-	const listint_t *temp;
+	size_t nodes, index = 0;
 
-	if (!head)
-		exit(98);
+	nodes = get_loop(head);
 
-	get_loop = check_loop(head);
-
-	if (get_loop)
+	if (!nodes)
 	{
-		count = count_to_loop(head);
-		for (get_loop = 0; get_loop < count; get_loop++)
+		for (; head; nodes++)
 		{
-			printf("[%p] %d\n", (void *)temp, temp->n);
-			nodes++;
-			temp = temp->next;
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
 		}
-	}
-	else if (!get_loop)
-	{
-		temp = head;
-		for (; temp;)
-		{
-			printf("[%p] %d\n", (void *)temp, temp->n);
-			nodes++;
-			temp = temp->next;
-		}
+		goto KILL;
 	}
 
-	return (nodes);
+	for (index = 0; index < nodes; index++)
+	{
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
+	}
+	printf("-> [%p] %d\n", (void *)head, head->n);
+
+KILL:	return (nodes);
 }
