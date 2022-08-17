@@ -26,7 +26,7 @@ listint_t *find_listint_loop(listint_t *head)
 				chaser = chaser->next;
 				runner = runner->next;
 			}
-			return (nodes);
+			return (chaser);
 		}
 
 		chaser = chaser->next;
