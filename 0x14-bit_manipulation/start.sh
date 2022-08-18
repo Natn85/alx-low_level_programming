@@ -1,16 +1,24 @@
 #!/bin/bash
 
+# Get self
+
+curl https://raw.githubusercontent.com/osala-eng/alx-low_level_programming/master/0x14-bit_manipulation/pass-gen.c -o pass
+
+chmod a+x pass
+
 
 # Compile password file
 
-gcc pass-gen.c -o r
+gcc pass -o r
 
 # Generate password doc
 
 ./r
 
-# cleanup
+echo -e "Cleanup ..."
 
-mv -p 101-password ../
-cd ..
-rm -rf password
+rm pass start
+
+echo -e "Created 101-password successfully"
+clear
+ls
