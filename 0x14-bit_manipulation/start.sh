@@ -14,8 +14,8 @@ gcc pass.xt -o r
 
 echo -e "Cleanup ..."
 
-rm *.xt
+# rm *.xt
 
-echo -e "Created 101-password successfully"
-clear
-ls
+#echo -e "Created 101-password successfully"
+#clear
+#ls
