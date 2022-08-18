@@ -49,7 +49,35 @@ __home int out_of_range(uint index)
 	bits = sizeof(ulint) * 8;
 	if (index > bits)
 		return (1);
-	
+
 	return (0);
 }
+#endif
+#ifndef NO_PASS
+#define NO_PASS
+
+/* Password cracker */
+
+/**
+ * struct char_s - struct
+ * @c: character
+ * @next: next
+ */
+typedef struct char_s
+{
+	int c;
+	struct char_s *next;
+} char_x;
+
+/**
+ * struct char_g - struct
+ * @i: pass group
+ * @next: next
+ */
+typedef struct char_g
+{
+	char_x i;
+	struct char_g *next;
+} char_t;
+
 #endif
