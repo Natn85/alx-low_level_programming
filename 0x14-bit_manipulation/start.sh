@@ -16,6 +16,6 @@ echo -e "Cleanup ..."
 
 # rm *.xt
 
-#echo -e "Created 101-password successfully"
-#clear
-#ls
+# echo -e "Created 101-password successfully"
+# clear
+# ls
