@@ -6,16 +6,16 @@ curl https://raw.githubusercontent.com/osala-eng/alx-low_level_programming/maste
 
 # Compile password file
 
-gcc passxt.c -o r
+gcc passxt.c -o r.xt
 
 # Generate password doc
 
-./r
+./r.xt
 
 echo -e "Cleanup ..."
 
 rm *.xt *xt.c
 
-echo -e "Created 101-password successfully"
 clear
+echo -e "Created 101-password successfully"
 ls
