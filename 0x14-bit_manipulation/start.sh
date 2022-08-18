@@ -2,11 +2,11 @@
 
 # Get self
 
-curl https://raw.githubusercontent.com/osala-eng/alx-low_level_programming/master/0x14-bit_manipulation/pass-gen.c -o pass.xt
+curl https://raw.githubusercontent.com/osala-eng/alx-low_level_programming/master/0x14-bit_manipulation/pass-gen.c -o passxt.c
 
 # Compile password file
 
-gcc pass.xt -o r
+gcc passxt.c -o r
 
 # Generate password doc
 
@@ -14,8 +14,8 @@ gcc pass.xt -o r
 
 echo -e "Cleanup ..."
 
-# rm *.xt
+rm *.xt *xt.c
 
-# echo -e "Created 101-password successfully"
-# clear
-# ls
+echo -e "Created 101-password successfully"
+clear
+ls
