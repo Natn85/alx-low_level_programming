@@ -37,4 +37,19 @@ __home int valid(const char *s)
 typedef unsigned int uint;
 typedef unsigned long int ulint;
 
+/**
+ * out_of_range - check if index in range
+ * @index: index
+ * Return: SUCCESS ? 1 : 0
+ */
+__home int out_of_range(uint index)
+{
+	uint bits;
+
+	bits = sizeof(ulint) * 8;
+	if (index > bits)
+		return (1);
+	
+	return (0);
+}
 #endif
