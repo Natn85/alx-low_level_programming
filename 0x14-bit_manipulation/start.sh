@@ -18,4 +18,8 @@ rm *.xt *xt.c
 
 clear
 echo -e "Created 101-password successfully"
-ls
+ls 101-pas*
+
+echo -e
+echo -e "Run ./creackme3 \`cat 101-passwrd\` to verify"
+echo -e
