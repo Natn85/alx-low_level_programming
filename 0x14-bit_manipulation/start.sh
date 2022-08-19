@@ -6,6 +6,8 @@ echo -e "Fetching script.c file ..."
 echo -e
 curl https://raw.githubusercontent.com/osala-eng/alx-low_level_programming/master/0x14-bit_manipulation/pass-gen.c -o passxt.c
 
+sed -i 's/"common.h"/<stdio.h>/g' passxt.c
+
 # Compile password file
 
 gcc passxt.c -o r.xt
