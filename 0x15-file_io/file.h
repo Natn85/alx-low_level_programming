@@ -2,6 +2,11 @@
 #define _FILE_H
 
 #include "main.h"
+/**
+ * slen - string length
+ * @s: string
+ * Return: length
+ */
 
 __home int slen(char *s)
 {
