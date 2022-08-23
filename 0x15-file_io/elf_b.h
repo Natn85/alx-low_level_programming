@@ -1,8 +1,7 @@
 #ifndef _ELF_B_H
 #define _ELF_B_H
 
-
-#include "elf_a.h"
+#include "main.h"
 
 /**
  * print_osabi - Prints the OS/ABI of an ELF header.

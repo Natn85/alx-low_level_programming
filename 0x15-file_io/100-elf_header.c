@@ -1,4 +1,5 @@
 #include "elf_b.h"
+#include "elf_a.h"
 
 /**
  * main - Displays the information contained in the
