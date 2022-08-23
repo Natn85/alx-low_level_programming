@@ -52,7 +52,7 @@ __home void close_file(int file_desc)
 
 	if (c == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_desc);
 		exit(100);
 	}
 }
