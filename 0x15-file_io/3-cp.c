@@ -1,39 +1,48 @@
 #include "file.h"
 
 /**
- * main - entry point
+ * main - Copies the contents of a file to another file.
  * @argc: -
  * @argv: -
- * Return: 0 (success), 97-100 (exit value errors)
+ *
+ * Return: 0 on success.
  */
 
 int main(int argc, char *argv[])
 {
-	int f_desc_1, f_desc_2, _read, _write;
-	char *buffer[1024];
+	int f_desc_1, f_desc_2, r, w;
+	char *buffer;
 
 	if (argc != 3)
 		__exit(97, NULL, 0);
 
-	f_desc_2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (f_desc_2 == -1)
-		__exit(99, argv[2], 0);
-
+	buffer = create_buffer(argv[2]);
 	f_desc_1 = open(argv[1], O_RDONLY);
-	if (f_desc_1 == -1)
-		__exit(98, argv[1], 0);
+	r = read(f_desc_1, buffer, 1024);
+	f_desc_2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while ((_read = read(f_desc_1, buffer, 1024)) != 0)
-	{
-		if (_read == -1)
+	do {
+		if (f_desc_1 == -1 || r == -1)
+		{
+			free(buffer);
 			__exit(98, argv[1], 0);
+		}
 
-		_write = write(f_desc_2, buffer, _read);
-		if (_write == -1)
+		w = write(f_desc_2, buffer, r);
+		if (f_desc_2 == -1 || w == -1)
+		{
+			free(buffer);
 			__exit(99, argv[2], 0);
-	}
+		}
 
-	close(f_desc_2) == -1 ? (__exit(100, NULL, f_desc_2)) : close(f_desc_2);
-	close(f_desc_1) == -1 ? (__exit(100, NULL, f_desc_1)) : close(f_desc_1);
+		r = read(f_desc_1, buffer, 1024);
+		f_desc_2 = open(argv[2], O_WRONLY | O_APPEND);
+
+	} while (r > 0);
+
+	free(buffer);
+	close_file(f_desc_1);
+	close_file(f_desc_2);
+
 	return (0);
 }
