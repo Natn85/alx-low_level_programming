@@ -2,14 +2,27 @@
 #include "elf_a.h"
 
 /**
+ * close_elf - Closes an ELF file.
+ * @elf: The file descriptor of the ELF file.
+ */
+__home void close_elf(int elf)
+{
+	if (close(elf) == -1)
+	{
+		dprintf(STDERR_FILENO,
+		"Error: Can't close fd %d\n", elf);
+		exit(98);
+	}
+}
+/**
  * main - Displays the information contained in the
- *        ELF header at the start of an ELF file.
+ *	ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
  * Return: 0 on success.
  */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(__silent int argc, char *argv[])
 {
 	Elf64_Ehdr *header;
 	int o, r;
