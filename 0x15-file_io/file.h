@@ -16,34 +16,6 @@ __home int slen(char *s)
 	return (1 + slen(s));
 }
 
-/**
- * __exit - exit strategy
- * @error: error code
- * @s: string
- * @file_desc: file descriptor
- * Return: int
- */
-
-__home int __exit(int error, char *s, int file_desc)
-{
-	switch (error)
-	{
-	case 97:
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(error);
-	case 98:
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
-		exit(error);
-	case 99:
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
-		exit(error);
-	case 100:
-		dprintf(STDERR_FILENO, "Error: Can't close file_desc %d\n", file_desc);
-		exit(error);
-	default:
-		return (0);
-	}
-}
 
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
@@ -59,8 +31,11 @@ __home char *create_buffer(char *file)
 	buffer = malloc(sizeof(char) * 1024);
 
 	if (!buffer)
-		__exit(99, file, 0);
-
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", file);
+		exit(99);
+	}
 	return (buffer);
 }
 
@@ -76,6 +51,9 @@ __home void close_file(int file_desc)
 	c = close(file_desc);
 
 	if (c == -1)
-		__exit(100, NULL, file_desc);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
 }
 #endif
