@@ -9,6 +9,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#include <elf.h>
+
 #define __home inline
 
 ssize_t read_textfile(const char *filename, size_t letters);
