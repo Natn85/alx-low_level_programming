@@ -2,10 +2,29 @@
 #include "elf_a.h"
 
 /**
+ * print_version - Prints the version of an ELF header.
+ * @e_ident: A pointer to an array containing the ELF version.
+ */
+void print_version(unsigned char *e_ident)
+{
+	printf("  Version:                           %d",
+	       e_ident[EI_VERSION]);
+
+	switch (e_ident[EI_VERSION])
+	{
+	case EV_CURRENT:
+		printf(" (current)\n");
+		break;
+	default:
+		printf("\n");
+		break;
+	}
+}
+/**
  * close_elf - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
  */
-__home void close_elf(int elf)
+void close_elf(int elf)
 {
 	if (close(elf) == -1)
 	{

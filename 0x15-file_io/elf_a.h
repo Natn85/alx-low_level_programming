@@ -97,19 +97,4 @@ __home void print_data(unsigned char *e_ident)
 	}
 }
 
-/**
- * print_version - Prints the version of an ELF header.
- * @e_ident: A pointer to an array containing the ELF version.
- */
-__home void print_version(unsigned char *e_ident)
-{
-	printf("  Version:                           %d",
-	       e_ident[EI_VERSION]);
-
-	if (e_ident[EI_VERSION] == EV_CURRENT)
-		printf(" (current)\n");
-	else
-		printf("\n");
-}
-
 #endif
