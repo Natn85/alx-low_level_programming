@@ -1,5 +1,11 @@
 #include "lists.h"
 
+/**
+ * add_dnodeint - add a node to the head of a list
+ * @head: pointer to head
+ * @n: new node to add
+ * Return: new list
+ */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new;
