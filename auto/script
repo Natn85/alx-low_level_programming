@@ -2,4 +2,4 @@
 
 # Test command
 
-ls
+echo -e No tests defined
