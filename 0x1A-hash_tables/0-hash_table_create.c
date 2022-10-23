@@ -12,7 +12,7 @@ hash_table_t *hash_table_create(ulint size)
 	ulint i;
 
 	ht = malloc(sizeof(table_t));
-	if (!hash)
+	if (!ht)
 		return (NULL);
 
 	array = malloc(sizeof(*array) * size);
