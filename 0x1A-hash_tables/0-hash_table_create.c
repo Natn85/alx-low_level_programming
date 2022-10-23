@@ -7,26 +7,26 @@
  */
 hash_table_t *hash_table_create(ulint size)
 {
-	table *hash;
-	node **array;
+	table_t *ht;
+	node_t **array;
 	ulint i;
 
-	hash = malloc(sizeof(table));
+	ht = malloc(sizeof(table_t));
 	if (!hash)
 		return (NULL);
 
 	array = malloc(sizeof(*array) * size);
 	if (!array)
 	{
-		free(hash);
+		free(ht);
 		return (NULL);
 	}
 
 	for (i = 0; i < size; i++)
 		array[i] = NULL;
 
-	hash->size = size;
-	hash->array = array;
+	ht->size = size;
+	ht->array = array;
 
-	return (hash);
+	return (ht);
 }

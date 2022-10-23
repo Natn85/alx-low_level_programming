@@ -6,7 +6,7 @@
 #include <string.h>
 #include "data.h"
 
-#define table hash_table_t
-#define node hash_node_t
+#define table_t hash_table_t
+#define node_t hash_node_t
 
 #endif
