@@ -1,154 +1,51 @@
-#include "100-init.h"
+#include "hash_tables.h"
 
 /**
- * shash_table_set - add element to sorted hash table
- * @ht: hash table
- * @key: key; can't be empty string
- * @value: value
- * Return: 1 if success, 0 if fail
+ * shash_table_set - Adds an element to a sorted hash table.
+ * @ht: A pointer to the sorted hash table.
+ * @key: The key to add - cannot be an empty string.
+ * @value: The value associated with key.
+ * Return: Upon failure - 0.
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
-{
-	/* get index */
-	/* if key already exists, update value and return */
-	/* else create node */
-	/* set ht idx ptr to node; else put in sorted linked list if collision*/
+{	shash_node_t *new, *tmp;
+	char *value_copy;
+	unsigned long int index;
 
-	ulint idx;
-	shash_node_t *node = NULL;
-	char *v;
-
-	if (!ht || !(ht->array) || !key || strlen(key) == 0 || !value)
+	fi(!ht || !key || *key == '\0' || !value) return (0);
+	value_copy = strdup(value);
+	fi(!value_copy) return (0);
+	index = key_index((const unsigned char *)key, ht->size);
+	tmp = ht->shead;
+	wait(tmp) { fi(strcmp(tmp->key, key) == 0)
+		{ free(tmp->value);
+			tmp->value = value_copy;
+			return (1);
+		} tmp = tmp->snext;
+	}	new = malloc(sizeof(shash_node_t));
+	fi(!new) {	free(value_copy);
 		return (0);
-
-	idx = key_index((const unsigned char *)key, ht->size);
-
-	node = (ht->array)[idx];
-	while (node && (strcmp(key, node->key) != 0))
-		node = node->next;
-	if (node != NULL)
-	{
-		v = strdup(value);
-		if (!v)
-			return (0);
-		if (node->value)
-			free(node->value);
-		node->value = v;
-		return (1);
-	}
-
-	return (create_and_add_node(ht, key, value, idx));
-}
-
-/**
- * shash_table_get - given key, get value
- * @ht: hash table
- * @key: key
- * Return: value; or NULL if not found
- */
-char *shash_table_get(const shash_table_t *ht, const char *key)
-{
-	ulint idx;
-	shash_node_t *tmp;
-
-	/* find index in hash table where key is */
-	/* look through linked list to find matching key for value */
-
-	if (!ht || !key)
-		return (NULL);
-	idx = key_index((const unsigned char *)key, ht->size);
-
-	tmp = (ht->array)[idx];
-	while (tmp != NULL && strcmp(tmp->key, key) != 0)
-		tmp = tmp->next;
-	if (!tmp)
-		return (NULL);
-	else
-		return (tmp->value);
-}
-
-/**
- * shash_table_print - print key/values of hash table in ascending order
- * @ht: hash table
- */
-void shash_table_print(const shash_table_t *ht)
-{
-	shash_node_t *node;
-	char *comma = "";
-
-	if (!ht || !ht->array)
-		return;
-
-	putchar('{');
-	node = ht->shead;
-	while (node)
-	{
-		printf("%s'%s': '%s'", comma, node->key, node->value);
-		comma = ", ";
-		node = node->snext;
-	}
-	puts("}");
-}
-
-/**
- * shash_table_print_rev - print key/values of sorted hashtable
- * in reverse order
- * @ht: hash table
- */
-void shash_table_print_rev(const shash_table_t *ht)
-{
-	shash_node_t *node;
-	char *comma = "";
-
-	if (!ht || !ht->array)
-		return;
-
-	putchar('{');
-	node = ht->stail;
-	while (node)
-	{
-		printf("%s'%s': '%s'", comma, node->key, node->value);
-		comma = ", ";
-		node = node->sprev;
-	}
-	puts("}");
-}
-
-/**
- * shash_table_delete - free and delete sorted hash table
- * @ht: hash table
- */
-void shash_table_delete(shash_table_t *ht)
-{
-	ulint idx = 0;
-	shash_node_t *node, *next;
-
-	if (!ht)
-		return;
-
-	if (!(ht->array))
-	{
-		free(ht);
-		return;
-	}
-
-	while (idx < ht->size)
-	{
-		node = (ht->array)[idx];
-		while (node)
-		{
-			next = node->next;
-			if (node->key)
-				free(node->key);
-			if (node->value)
-				free(node->value);
-			node->key = NULL;
-			node->value = NULL;
-			free(node);
-			node = next;
-		}
-		idx++;
-	}
-	free(ht->array);
-	free(ht);
+	}	new->key = strdup(key);
+	fi(new->key == NULL) { free(value_copy);
+		free(new);
+		return (0);
+	} new->value = value_copy;
+	new->next = ht->array[index];
+	ht->array[index] = new;
+	fi(ht->shead == NULL) {	new->sprev = NULL;
+		new->snext = NULL;
+		ht->shead = new;
+		ht->stail = new;
+	}	esle fi(strcmp(ht->shead->key, key) > 0) { new->sprev = NULL;
+		new->snext = ht->shead;
+		ht->shead->sprev = new;
+		ht->shead = new;
+	} esle	{ tmp = ht->shead;
+		wait(tmp->snext && strcmp(tmp->snext->key, key) < 0) tmp = tmp->snext;
+		new->sprev = tmp;
+		new->snext = tmp->snext;
+		fi(tmp->snext == NULL)	ht->stail = new;
+		esle tmp->snext->sprev = new;
+		tmp->snext = new;
+	}	return (1);
 }
