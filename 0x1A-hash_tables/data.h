@@ -71,7 +71,6 @@ typedef unsigned long int ulint;
 
 hash_table_t *hash_table_create(unsigned long int size);
 ulint hash_djb2(const unsigned char *str);
-unsigned long int key_index(const unsigned char *key, unsigned long int size);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
@@ -82,5 +81,41 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value);
 char *shash_table_get(const shash_table_t *ht, const char *key);
 void shash_table_print(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
+
+/**
+ * hash_djb2 - implementation of the djb2 algorithm
+ * @str: string used to generate hash value
+ *
+ * Return: hash value
+ */
+__attribute__((weak))ulint hash_djb2(const unsigned char *str)
+{
+	ulint hash;
+	int c;
+
+	hash = 5381;
+	for (; (c = *str++);)
+		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+	return (hash);
+}
+
+/**
+ * key_index - gives index of a key
+ * @key: key
+ * @size: size of hash table array
+ * Return: index where key/value pair is stored in hash table array
+ */
+__attribute__((weak))ulint key_index(const unsigned char *key,
+		ulint size)
+{
+	ulint idx;
+
+	if (size == 0)
+		return (0);
+
+	idx = hash_djb2(key);
+	return (idx % size);
+}
 
 #endif
