@@ -3,8 +3,25 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#define __local __attribute__((weak))
 
 int linear_search(int *array, size_t size, int value);
 int binary_search(int *array, size_t size, int value);
+
+/**
+ * print_array - prints an array
+ * @array: array to print
+ * @start: position to start printing
+ * @stop: position to stop
+ */
+__local void print_array(int *array, int start, int stop)
+{
+	int i = start;
+
+	for (; i < stop; ++i)
+		printf("%d, ", array[i]);
+
+	printf("%d\n", array[i]);
+}
 
 #endif
