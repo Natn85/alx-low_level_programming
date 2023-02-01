@@ -36,7 +36,6 @@ int jump_search(int *array, size_t size, int value)
 
 	if (!array)
 		goto KILL;
-
 	while (j <= size)
 	{
 		if (j != 0)
