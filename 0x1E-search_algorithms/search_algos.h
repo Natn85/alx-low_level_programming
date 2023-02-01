@@ -24,4 +24,6 @@ __local void print_array(int *array, int start, int stop)
 	printf("%d\n", array[i]);
 }
 
+int jump_search(int *array, size_t size, int value);
+
 #endif
