@@ -3,10 +3,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
 #define __local __attribute__((weak))
 
 int linear_search(int *array, size_t size, int value);
 int binary_search(int *array, size_t size, int value);
+int jump_search(int *array, size_t size, int value);
 
 /**
  * print_array - prints an array
@@ -23,7 +26,5 @@ __local void print_array(int *array, int start, int stop)
 
 	printf("%d\n", array[i]);
 }
-
-int jump_search(int *array, size_t size, int value);
 
 #endif
