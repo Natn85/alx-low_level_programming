@@ -8,16 +8,12 @@
 
 int main(void)
 {
-	int num;
-
-	for (num = 0; num < 10; num++)
+	for (int num = 0; num < 10; num++)
 	{
-		putchar(num + '0');
-		if (num == 9)
-			continue;
-		putchar(',');
-		putchar(' ');
+		printf("%i", num);
+		if (num != 9)
+			printf(",");
 	}
-	putchar('\n');
+	printf("\n");
 	return (0);
 }
