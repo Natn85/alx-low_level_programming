@@ -21,8 +21,7 @@ int main(void)
 				putchar(j + '0');
 				if (num == 7 && i == 8 && j == 9)
 					continue;
-				putchar(',');
-				putchar(' ');
+				printf(", ");
 			}
 		}
 	}
